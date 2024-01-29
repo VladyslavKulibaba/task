@@ -1,0 +1,40 @@
+version: '3.7'
+services:
+  author:
+    image: aemdesign/aem:6.5.11.0-jdk11
+    environment:
+      # For local usage only. To setup AEM for different env change local runmode to required.
+      - "AEM_RUNMODE=-Dsling.run.modes=crx3,local,s7connect,samplecontent,author,crx3tar"
+    ports:
+      - 4502:8080
+      - 30313:58242
+    volumes:
+      - author-volume:/author/aem/crx-quickstart/repository
+      - author-volume:/author/aem/crx-quickstart/app
+      - author-volume:/author/aem/crx-quickstart/install
+      - author-volume:/author/aem/crx-quickstart/logs
+      - author-volume:/author/aem/backup
+  publish:
+    depends_on:
+      - author
+    image: aemdesign/aem:6.5.11.0-jdk11
+    environment:
+      # For local usage only. To setup AEM for different env change local runmode to required.
+      - "AEM_RUNMODE=-Dsling.run.modes=crx3,local,s7connect,samplecontent,publish,crx3tar"
+    ports:
+      - 4503:8080
+      - 30314:58242
+    volumes:
+      - publish-volume:/publish/aem/crx-quickstart/repository
+      - publish-volume:/publish/aem/crx-quickstart/app
+      - publish-volume:/publish/aem/crx-quickstart/install
+      - publish-volume:/publish/aem/crx-quickstart/logs
+      - publish-volume:/publish/aem/backup
+
+volumes:
+  publish-volume:
+  author-volume:
+
+networks:
+  default:
+    name: aem_net

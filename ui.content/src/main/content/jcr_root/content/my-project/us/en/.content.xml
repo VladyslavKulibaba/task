@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        pageTitle="My Project"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="en"
+        cq:contextHubPath="/etc/cloudsettings/default/contexthub"
+        cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
+        cq:template="/conf/my-project/settings/wcm/templates/page-content"
+        sling:resourceType="my-project/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="my-project/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="my-project/components/container">
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="my-project/components/container"
+                    layout="responsiveGrid">
+                    <practice
+                        jcr:lastModified="{Date}2024-01-28T19:15:00.861Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="my-project/components/practice"
+                        backgroundImage="true"
+                        imagePath="/content/dam/my-project/asset.jpg"
+                        title="Title">
+                        <navigationItems jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                pagePath="/content/my-project/us/en"
+                                title="Title 1"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                pagePath="/content/my-project/us/en"
+                                title="Title 2"/>
+                            <item2
+                                jcr:primaryType="nt:unstructured"
+                                pagePath="/content/my-project/us/en"
+                                title="Title 3"/>
+                        </navigationItems>
+                    </practice>
+                </container>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/my-project" mode="merge"/>
+    <filter root="/content/my-project" mode="merge"/>
+    <filter root="/content/dam/my-project" mode="merge">
+        <exclude pattern="/content/dam/my-project(/.*)?"/>
+        <include pattern="/content/dam/my-project/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/my-project/asset.jpg" mode="merge"/>
+    <filter root="/var/groovyconsole" mode="merge"/>
+</workspaceFilter>

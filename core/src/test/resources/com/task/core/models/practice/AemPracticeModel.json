@@ -1,0 +1,26 @@
+{
+  "container": {
+    "jcr:content": {
+      "root": {
+        "responsivegrid": {
+          "practice": {
+            "sling:resourceType": "my-project/components/practice",
+            "title": "Test title",
+            "imagePath": "/content/dam/test",
+            "backgroundImage": true,
+            "navigationItems": {
+              "item1": {
+                "title": "Title 1",
+                "pagePath": "/content/pagePath1"
+              },
+              "item2": {
+                "title" : "Title 2",
+                "pagePath": "/content/pagePath2"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

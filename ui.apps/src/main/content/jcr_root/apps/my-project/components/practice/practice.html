@@ -1,0 +1,28 @@
+<sly data-sly-use.model="com.task.core.models.AemPracticeModel"
+    data-sly-use.helper="com.task.core.models.InstanceHelper">
+    <div class="cmp-practice" data-cmp-is="practice">
+        <h2 class="cmp-practice__title">${model.title}</h2>
+
+        <sly data-sly-test.display="${model.imagePath && model.backgroundImage && !helper.authorRunMode}">
+            <img src="${model.imagePath @context='uri'}" alt="Component background" width="500" height="600">
+        </sly>
+
+        <ul data-sly-list="${model.navigationItems}">
+            <li>
+                <sly data-sly-test.first="${itemList.first}">
+                    <b>${item.title} ${item.pagePath}</b>
+                </sly>
+                <sly data-sly-test.last="${!first && itemList.last}">
+                    <i>${item.title} ${item.pagePath}</i>
+                </sly>
+                <sly data-sly-test.regular="${!itemList.first && !itemList.last}">
+                    ${item.title} ${item.pagePath}
+                </sly>
+            </li>
+        </ul>
+
+        <sly data-sly-test.author="${helper.authorRunMode}">
+            <p>Author mode</p>
+        </sly>
+    </div>
+</sly>
